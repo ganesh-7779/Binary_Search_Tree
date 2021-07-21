@@ -20,6 +20,7 @@ public class BinarySearchTree<k extends Comparable<k>> {
 	 * @param value is value / data of tree node
 	 * @return Adding key to the node of tree
 	 */
+	
 	private MyBinaryNode<k> insert(MyBinaryNode<k> root, k value) {
 		if (root == null) {
 			return new MyBinaryNode<>(value);
@@ -36,20 +37,59 @@ public class BinarySearchTree<k extends Comparable<k>> {
 		return root;
 
 	}
-	public int  getSize() {
+
+	/**
+	 * @return Size of tree
+	 */
+	
+	public int getSize() {
 		return this.getSizeRecursive(root);
 	}
+
+	/**
+	 * @param root
+	 * @return Size of tree Recursively
+	 */
+	
 	public int getSizeRecursive(MyBinaryNode<k> root) {
-		if(root==null) {
-			return 0;	
+		if (root == null) {
+			return 0;
 		}
-		return 1 + getSizeRecursive(root.left)+getSizeRecursive(root.right);
+		return 1 + getSizeRecursive(root.left) + getSizeRecursive(root.right);
+	}
+
+	/**
+	 * @param key is value of node
+	 * @return true and false
+	 */
+	
+	public boolean search(k key) {
+
+		return recursiveSearch(root, key);
+	}
+
+	/**
+	 * @param root  is node of tree
+	 * @param value is a value of node
+	 * @return true and false
+	 */
+	
+	public boolean recursiveSearch(MyBinaryNode<k> root, k value) {
+		if (root == null) {
+			return false;
+		}
+		if (root.value == value) {
+			System.out.println("it a node of tree " + value);
+
+			return true;
+		}
+		return recursiveSearch(root.left, value) || recursiveSearch(root.right, value);
 	}
 
 	/**
 	 * It displays the node
 	 */
-
+	
 	public void printNodes() {
 		printNodes(root);
 	}
