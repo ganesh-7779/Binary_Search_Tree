@@ -36,6 +36,15 @@ public class BinarySearchTree<k extends Comparable<k>> {
 		return root;
 
 	}
+	public int  getSize() {
+		return this.getSizeRecursive(root);
+	}
+	public int getSizeRecursive(MyBinaryNode<k> root) {
+		if(root==null) {
+			return 0;	
+		}
+		return 1 + getSizeRecursive(root.left)+getSizeRecursive(root.right);
+	}
 
 	/**
 	 * It displays the node
