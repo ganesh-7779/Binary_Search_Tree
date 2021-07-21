@@ -23,5 +23,8 @@ public class Runner {
 		element.printNodes();
 		int size = element.getSize();
 		System.out.println("Size of tree "+" " +size);
+		boolean search = element.search(63);
+		System.out.println("it is node of tree ? True/false : " +search);
+
 	}
 }
